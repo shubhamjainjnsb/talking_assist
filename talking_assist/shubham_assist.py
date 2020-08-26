@@ -54,103 +54,100 @@ def main():
 
         return query
 
+    while True:
 
-    if __name__ == '__main__':
-
-        while True:
-
-            query = myCommand();
-            query = query.lower()
-            if "open "in query:
-                cnt=0
-                for i in range(len(query)):
-                    if query[i]==" ":
-                        cnt+=1
-                if cnt==1:
-                    speak("done sir! Enjoy !")
-                    x=query.split(' ', 1)[1]
-                    site="www."+x+".com"
-                    webbrowser.open(site)
-                if query=="open youtube":
-                    speak("would u like to open any channel??")
-                    query = myCommand()
-                    if query in "y yes yaa yeah yuup yup":
-                        speak("alright")
-                        speak("speak valid channel name")
-                        x= myCommand()
-                        x=str(x)
-                        webbrowser.open("https://www.youtube.com/results?search_query="+x)
-                elif(cnt==2):
-                    speak("done sir! Enjoy !")
-                    if query=="open google drive" :
-                        webbrowser.open("drive.google.com")
-                    elif query=="open google maps":
-                        webbrowser.open("maps.google.com")
-                    elif query=="open google translator":
-                        webbrowser.open("translator.google.com")
-                else:
-                    x=query.split(' ', 1)[1]
-                    site=x+".in"
-                    webbrowser.open(site)
-
-
-
-            elif "what\'s up" in query or 'how are you' in query:
-                stMsgs = ['Just doing my thing!', 'I am fine!', 'Nice!', 'I am nice and full of energy']
-                speak(random.choice(stMsgs))
-                #speak("mere ex be chungi mere next be chungi mere crush be chungi rishtadaar bahaut cute")
-
-            elif 'nothing' in query or 'abort' in query or 'stop' in query or 'goodbye' in query:
-                speak('okay')
-                speak('Bye Master!')
-                sys.exit()
-
-            elif 'hello' in query:
-                speak('Hello Sir')
-
-            elif 'play music' in query:
-                speak("i can open youtube and you can select music!")
-                speak("DO you want me to do so?")
-                x=myCommand()
-                if x in "yes yeah yup yuup yah":
-                    webbrowser.open("www.youtube.com")
-
-            elif"what can you do" in query:
-                speak("what do u want")
-                speak("i can open youtube,google,gmail,send email ,play music,open some self made games and much more you will definately have fun with me!")
-
-            elif "write something" in query:
-                speak("got it  start speaking...")
-                content = myCommand()
-                print(content)
-
-            elif"abba harmonium bajate the" in query:
-                speak("nahi!!")
-                speak("abba harmonium khaaate the   the !! Arrey bhhaaii")
-                speak("Maaf karna gusse m idhar udhar nikal jate hu")
-
-            elif "love" in query:
-                speak("What can i say!!")
-                #speak("bhaag yah   c ")
-                speak("but you are valueable to me!")
-
-            elif "play games"  in query:
-                speak("Your hardware can't tollerate my games please try after my updation")
-
+        query = myCommand();
+        query = query.lower()
+        if "open "in query:
+            cnt=0
+            for i in range(len(query)):
+                if query[i]==" ":
+                    cnt+=1
+            if cnt==1:
+                speak("done sir! Enjoy !")
+                x=query.split(' ', 1)[1]
+                site="www."+x+".com"
+                webbrowser.open(site)
+            if query=="open youtube":
+                speak("would u like to open any channel??")
+                query = myCommand()
+                if query in "y yes yaa yeah yuup yup":
+                    speak("alright")
+                    speak("speak valid channel name")
+                    x= myCommand()
+                    x=str(x)
+                    webbrowser.open("https://www.youtube.com/results?search_query="+x)
+            elif(cnt==2):
+                speak("done sir! Enjoy !")
+                if query=="open google drive" :
+                    webbrowser.open("drive.google.com")
+                elif query=="open google maps":
+                    webbrowser.open("maps.google.com")
+                elif query=="open google translator":
+                    webbrowser.open("translator.google.com")
             else:
-                query = query
-                speak('Searching...')
-                try:
-                    results = wikipedia.summary(query, sentences=2)
-                    speak('Got it.')
-                    speak('WIKIPEDIA says - ')
-                    speak(results)
+                x=query.split(' ', 1)[1]
+                site=x+".in"
+                webbrowser.open(site)
 
-                except:
-                    speak("Sorry master !! something went wrong please try searching google")
-                    speak("should i open google for you??")
-                    x=myCommand()
-                    if x in "y":
-                        webbrowser.open('www.google.com\\'+query)
 
-            speak("what's my next task master!")
+
+        elif "what\'s up" in query or 'how are you' in query:
+            stMsgs = ['Just doing my thing!', 'I am fine!', 'Nice!', 'I am nice and full of energy']
+            speak(random.choice(stMsgs))
+            #speak("mere ex be chungi mere next be chungi mere crush be chungi rishtadaar bahaut cute")
+
+        elif 'nothing' in query or 'abort' in query or 'stop' in query or 'goodbye' in query:
+            speak('okay')
+            speak('Bye Master!')
+            sys.exit()
+
+        elif 'hello' in query:
+            speak('Hello Sir')
+
+        elif 'play music' in query:
+            speak("i can open youtube and you can select music!")
+            speak("DO you want me to do so?")
+            x=myCommand()
+            if x in "yes yeah yup yuup yah":
+                webbrowser.open("www.youtube.com")
+
+        elif"what can you do" in query:
+            speak("what do u want")
+            speak("i can open youtube,google,gmail,send email ,play music,open some self made games and much more you will definately have fun with me!")
+
+        elif "write something" in query:
+            speak("got it  start speaking...")
+            content = myCommand()
+            print(content)
+
+        elif"abba harmonium bajate the" in query:
+            speak("nahi!!")
+            speak("abba harmonium khaaate the   the !! Arrey bhhaaii")
+            speak("Maaf karna gusse m idhar udhar nikal jate hu")
+
+        elif "love" in query:
+            speak("What can i say!!")
+            #speak("bhaag yah   c ")
+            speak("but you are valueable to me!")
+
+        elif "play games"  in query:
+            speak("Your hardware can't tollerate my games please try after my updation")
+
+        else:
+            query = query
+            speak('Searching...')
+            try:
+                results = wikipedia.summary(query, sentences=2)
+                speak('Got it.')
+                speak('WIKIPEDIA says - ')
+                speak(results)
+
+            except:
+                speak("Sorry master !! something went wrong please try searching google")
+                speak("should i open google for you??")
+                x=myCommand()
+                if x in "y":
+                    webbrowser.open('www.google.com\\'+query)
+
+        speak("what's my next task master!")
